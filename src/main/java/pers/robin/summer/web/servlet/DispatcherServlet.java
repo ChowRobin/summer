@@ -33,15 +33,15 @@ public class DispatcherServlet extends HttpServlet {
      */
     public void init(ServletConfig config) {
         // 所有待初始化对象class扫描出来
-        doScanPackage("");
+        doScanPackage("pers.robin.summer.demo");
 
         //1.创建业务bean
         doInstance();
 
-        // 处理注入
+        //2.处理注入
         doAutowired();
 
-        //URL映射到方法
+        //3.URL映射到方法
         doMapping();
     }
 
@@ -120,13 +120,15 @@ public class DispatcherServlet extends HttpServlet {
     }
 
     private void doScanPackage(String basePackage) {
-        URL url = this.getClass().getClassLoader().getResource("/"
-                                                                + basePackage.replaceAll("\\.", "/"));
+        URL url = this.getClass().getResource("/"
+                + basePackage.replaceAll("\\.", "/"));
+//        System.out.println("basePackage " + url);
         String fileStr = url.getFile();
+//        System.out.println("fileStr " + fileStr);
         File file = new File(fileStr);
         String[] filesStr = file.list();
         for (String path : filesStr) {
-            File filePath = new File(fileStr + path);
+            File filePath = new File(fileStr + "/" + path);
             if (filePath.isDirectory()) {
                 doScanPackage(basePackage + "." + path);
             } else {
@@ -137,7 +139,7 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        this.doPost(req, resp);
     }
 
     @Override
@@ -160,4 +162,5 @@ public class DispatcherServlet extends HttpServlet {
     private Object[] hand(HttpServletRequest req, HttpServletResponse resp) {
         return null;
     }
+
 }
