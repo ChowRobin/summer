@@ -1,9 +1,9 @@
 package pers.robin.summer.web.servlet;
 
-import pers.robin.summer.beans.anotation.Autowired;
-import pers.robin.summer.beans.anotation.Service;
-import pers.robin.summer.web.anotation.Controller;
-import pers.robin.summer.web.anotation.RequestMapping;
+import pers.robin.summer.beans.factory.anotation.Autowired;
+import pers.robin.summer.beans.annotation.Service;
+import pers.robin.summer.web.annotation.Controller;
+import pers.robin.summer.web.annotation.RequestMapping;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

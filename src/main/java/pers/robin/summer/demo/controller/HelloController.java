@@ -1,10 +1,7 @@
 package pers.robin.summer.demo.controller;
 
-import pers.robin.summer.web.anotation.Controller;
-import pers.robin.summer.web.anotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import pers.robin.summer.web.annotation.Controller;
+import pers.robin.summer.web.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/hello")

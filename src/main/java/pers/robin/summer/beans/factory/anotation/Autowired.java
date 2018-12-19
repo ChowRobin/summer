@@ -1,4 +1,4 @@
-package pers.robin.summer.beans.anotation;
+package pers.robin.summer.beans.factory.anotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
